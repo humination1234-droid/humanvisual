@@ -32,7 +32,7 @@ jobs:
           gradle-version: 8.12
 
       - name: Build
-        run: gradle build —no-daemon
+        run: gradle build
 
       - uses: actions/upload-artifact@v4
         with:
