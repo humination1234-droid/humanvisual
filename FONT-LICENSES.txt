@@ -1,0 +1,8 @@
+Fonts bundled with Human Visual:
+
+Poppins (Medium) - Copyright Indian Type Foundry. Licensed under the SIL Open Font License 1.1
+(https://openfontlicense.org). Used as the main UI font.
+
+DejaVu Sans - Copyright Bitstream, Inc. and the DejaVu authors. Free license that allows
+redistribution (https://dejavu-fonts.github.io/License.html). Used as a fallback for
+characters Poppins does not have (for example Cyrillic).
