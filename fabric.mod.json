@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "humanvisual",
+  "version": "2.0.0",
+  "name": "Human Visual",
+  "description": "PvP visuals with a clean GUI. Open with Right Shift.",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.human.visual.HumanVisualClient"]
+  },
+  "mixins": ["humanvisual.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

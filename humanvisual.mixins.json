@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.human.visual.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "OverlayTextureAccessor",
+    "ClientWorldPropertiesMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
