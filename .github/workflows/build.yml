@@ -1,28 +1,40 @@
-  - name: Arrange files into folders
-    run: |
-      mkdir -p src/main/java/com/human/visual/mixin
-      mkdir -p src/main/resources/assets/humanvisual/lang
-      mkdir -p gradle/wrapper
-      mv -n ClientWorldPropertiesMixin.java OverlayTextureAccessor.java src/main/java/com/human/visual/mixin/ || true
-      mv -n Hud.java HumanScreen.java HumanVisualClient.java Module.java Modules.java Render3D.java src/main/java/com/human/visual/ || true
-      mv -n en_us.json src/main/resources/assets/humanvisual/lang/ || true
-      mv -n fabric.mod.json humanvisual.mixins.json src/main/resources/ || true
-      mv -n gradle-wrapper.properties gradle/wrapper/ || true
-      find src -type f
+name: Build mod
 
-  - uses: actions/setup-java@v4
-    with:
-      distribution: temurin
-      java-version: 21
+on:
+  push:
+  workflow_dispatch:
 
-  - uses: gradle/actions/setup-gradle@v4
-    with:
-      gradle-version: 8.12
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-  - name: Build
-    run: gradle build --no-daemon
+      - name: Arrange files into folders
+        run: |
+          mkdir -p src/main/java/com/human/visual/mixin
+          mkdir -p src/main/resources/assets/humanvisual/lang
+          mkdir -p gradle/wrapper
+          mv -n ClientWorldPropertiesMixin.java OverlayTextureAccessor.java src/main/java/com/human/visual/mixin/ || true
+          mv -n Hud.java HumanScreen.java HumanVisualClient.java Module.java Modules.java Render3D.java src/main/java/com/human/visual/ || true
+          mv -n en_us.json src/main/resources/assets/humanvisual/lang/ || true
+          mv -n fabric.mod.json humanvisual.mixins.json src/main/resources/ || true
+          mv -n gradle-wrapper.properties gradle/wrapper/ || true
+          find src -type f
 
-  - uses: actions/upload-artifact@v4
-    with:
-      name: HumanVisual-mod
-      path: build/libs/humanvisual-2.0.0.jar
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.12
+
+      - name: Build
+        run: gradle build —no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: HumanVisual-mod
+          path: build/libs/humanvisual-2.0.0.jar
